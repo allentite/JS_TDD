@@ -21,6 +21,20 @@ describe('ShoppingCart', () => {
       // Assert
       actual.should.equal(expected);
     });
+    it('如果是VIP，購物滿500元，打8折', () => {
+      // Arrange
+      var cartPrice = 500;
+      var expected = 400;
+      var actual = 0;
+      var shoppingCart = new ShoppingCart("VIP");
+
+      
+      // Act
+      actual = shoppingCart.Calculate(cartPrice);
+      
+      // Assert
+      actual.should.equal(expected);
+    });
   });
   
 });
