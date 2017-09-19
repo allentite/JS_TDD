@@ -4,7 +4,9 @@ function ShoppingCart(type) {
 
 // 撰寫邏輯
 ShoppingCart.prototype.Calculate = function (cartPrice) {
-   return cartPrice; 
+  if (MemberType == "VIP" && cartPrice >= 500) { return cartPrice * 0.8;}
+  else { return cartPrice; }
+   
   
 }
 
