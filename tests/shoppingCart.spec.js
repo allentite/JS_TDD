@@ -37,10 +37,10 @@ describe('ShoppingCart', () => {
     });
     it('如果不是VIP會員，則買1000元以及超過三個商品打85折', () => {
       // Arrange
-      var cartPrice = [300,400,500];
-      var expected = 1020;
+      var cartPrice = [300,400,500,600];
+      var expected = 1530;
       var actual = 0;
-      var shoppingCart = new ShoppingCart("VIP");
+      var shoppingCart = new ShoppingCart();
       
       // Act
       actual = shoppingCart.Calculate(cartPrice);
@@ -48,6 +48,19 @@ describe('ShoppingCart', () => {
       // Assert
       actual.should.equal(expected);
       
+    });
+    it('如果不是VIP會員，則買1000元以及沒超過三個商品照原價', () => {
+      // Arrange
+      var cartPrice = [300,400,500];
+      var expected = 1200;
+      var actual = 0;
+      var shoppingCart = new ShoppingCart();
+      
+      // Act
+      actual = shoppingCart.Calculate(cartPrice);
+      
+      // Assert
+      actual.should.equal(expected);
     });
   });
   
